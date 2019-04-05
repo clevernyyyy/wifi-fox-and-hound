@@ -33,7 +33,7 @@
         <a href="rules.html" class="list-group-item list-group-item-action bg-light">Rules</a>
         <a href="software.html" class="list-group-item list-group-item-action bg-light">Software Tools</a>
         <a href="howto.html" class="list-group-item list-group-item-action bg-light">How-Tos</a>
-        <a href="basics.html" class="list-group-item list-group-item-action bg-light">Basics</a>
+        <a href="basics.html" class="list-group-item list-group-item-action bg-light list-active">Basics</a>
         <a href="wild.html" class="list-group-item list-group-item-action bg-light">In The Wild</a>
         <a href="help.html" class="list-group-item list-group-item-action bg-light">Help</a>
       </div>
@@ -59,9 +59,26 @@
       </nav>
 
       <div class="container-fluid">
-        <h1 class="mt-4">Welcome Attendees!</h1>
-        <p>You will find a ton of information here for the WiFi Fox & Hound event.  This challenge was designed for both beginners and seasoned professionals - we encourage all to participate! If you have never participated in or heard of a WiFi Fox & Hound event before the basic gist of it is that we hid access points (APs) across the conference for attendees to find. Once you find an AP, you must figure out how to get into said access point. Score points once you figure out the password!</p>
-        <p>Use the sidebar to get more details about the contest, including how-to guides, recommended tools and further explanations.</p>
+        <h1 class="mt-4">Basic Terminology</h1>
+        <p>Taken from <a href="https://techtalk.gfi.com/wi-fi-glossary-71-terms-you-need-to-know/" target="_blank">https://techtalk.gfi.com/wi-fi-glossary-71-terms-you-need-to-know/</a> and <a href="https://www.datapro.net/techinfo/wifi_term.html" target="_blank">https://www.datapro.net/techinfo/wifi_term.html</a></p>
+
+
+        <h3 class="mt-4">WEP</h3>
+        <ul>
+          <li>If you capture enough packets(IV initialization vectors), about 100000, from the network, you can crack the password with statistical methods. You can also add packet injection (ARP packets) to capture the 100,000 IV packets faster.</li>
+        </ul>
+        <h3 class="mt-4">WPA2</h3>
+        <ul>
+          <li>When a client (cell phone, laptop, roku) auto connects to a known WPA2 network, the password hash is exchanged during 4 way handshake. If you can capture the handshake/hash, you can crack it offline against a wordfile. Instead of waiting around for a client to connect, you can disconnect an already connected client with a DEAUTH packet, and the client will automatically reconnect with a fresh handshake. Some chipsets reveal their PSK without clients connected (PMKID attack)</li>
+        </ul>
+        <h3 class="mt-4">WPS</h3>
+        <ul>
+          <li>8 digit PIN, used as an alternative to the passphrase. It can be brute forced, or certain chipsets & firmwares have exploits that reveal the PIN (PixieDust)</li>
+        </ul>
+        <h3 class="mt-4">Rainbow Tables</h3>
+        <ul>
+          <li>Hashed pre-shared key is a created using the ESSID as one of the inputs. If you want to create a database of wordlist that has been prehashed, you have to include the target ESSID in the hashing process. Useful for common/default ESSID names (NETGEAR, XyTel, etc).</li>
+        </ul>
       </div>
     </div>
     <!-- /#page-content-wrapper -->

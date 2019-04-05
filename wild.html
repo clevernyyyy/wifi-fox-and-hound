@@ -34,7 +34,7 @@
         <a href="software.html" class="list-group-item list-group-item-action bg-light">Software Tools</a>
         <a href="howto.html" class="list-group-item list-group-item-action bg-light">How-Tos</a>
         <a href="basics.html" class="list-group-item list-group-item-action bg-light">Basics</a>
-        <a href="wild.html" class="list-group-item list-group-item-action bg-light">In The Wild</a>
+        <a href="wild.html" class="list-group-item list-group-item-action bg-light list-active">In The Wild</a>
         <a href="help.html" class="list-group-item list-group-item-action bg-light">Help</a>
       </div>
     </div>
@@ -59,9 +59,12 @@
       </nav>
 
       <div class="container-fluid">
-        <h1 class="mt-4">Welcome Attendees!</h1>
-        <p>You will find a ton of information here for the WiFi Fox & Hound event.  This challenge was designed for both beginners and seasoned professionals - we encourage all to participate! If you have never participated in or heard of a WiFi Fox & Hound event before the basic gist of it is that we hid access points (APs) across the conference for attendees to find. Once you find an AP, you must figure out how to get into said access point. Score points once you figure out the password!</p>
-        <p>Use the sidebar to get more details about the contest, including how-to guides, recommended tools and further explanations.</p>
+        <h1 class="mt-4">Fox Hunting in the Wild</h1>
+        <ul>
+          <li>Wigle Mapper to find vulnerable access points within the city. Search by MAC address for vulnerable chipsets (e.g. Pixie Dust) <br /> <a href="https://wigle.net/" target="_blank">https://wigle.net/</a></li>
+          <li>RouterSploit. Most routers run embedded Linux. Get CLI & root access.<br /> <a href="https://github.com/threat9/routersploit" target="_blank">https://github.com/threat9/routersploit</a></li>
+          <li>Search the Exploit Databases for more exploits: <br /><a href="https://www.exploit-db.com/exploits/33520" target="_blank">https://www.exploit-db.com/exploits/33520</a><br /> <a href="https://www.exploit-db.com/exploits/41205" target="_blank">https://www.exploit-db.com/exploits/41205</a></li>
+          <li>Most routers have their firmware publicily available online. Extract & examine with BinWalk and modify with Firmware Mod Kit: <br/> <a href="https://github.com/ReFirmLabs/binwalk" target="_blank">https://github.com/ReFirmLabs/binwalk</a><br /><a href="https://github.com/rampageX/firmware-mod-kit/wiki" target="_blank">https://github.com/rampageX/firmware-mod-kit/wiki</a></li>
       </div>
     </div>
     <!-- /#page-content-wrapper -->

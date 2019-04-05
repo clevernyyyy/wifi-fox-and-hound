@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>WiFi Fox and Hound</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link href="css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">
+        <a href="index.html"><img class="main-logo" src="wifi.png"/></a>
+      </div>
+      <div class="list-group list-group-flush">
+        <a href="foxes.html" class="list-group-item list-group-item-action bg-light">Fox Information</a>
+        <a href="reqs.html" class="list-group-item list-group-item-action bg-light">Requirements</a>
+        <a href="rules.html" class="list-group-item list-group-item-action bg-light">Rules</a>
+        <a href="software.html" class="list-group-item list-group-item-action bg-light">Software Tools</a>
+        <a href="howto.html" class="list-group-item list-group-item-action bg-light list-active">How-Tos</a>
+        <a href="basics.html" class="list-group-item list-group-item-action bg-light">Basics</a>
+        <a href="wild.html" class="list-group-item list-group-item-action bg-light">In The Wild</a>
+        <a href="help.html" class="list-group-item list-group-item-action bg-light">Help</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="nav-title">Kernelcon WiFi Fox & Hound</div>
+
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0"></ul>
+          <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+        <h1 class="mt-4">How-To Guides and Suggested Methods</h1>
+        <h3 class="mt-4">Basic Terminology</h3>
+        <ul>
+          <li><a href="https://techtalk.gfi.com/wi-fi-glossary-71-terms-you-need-to-know/" target="_blank">https://techtalk.gfi.com/wi-fi-glossary-71-terms-you-need-to-know/</a></li>
+          <li><a href="https://www.datapro.net/techinfo/wifi_term.html" target="_blank">https://www.datapro.net/techinfo/wifi_term.html</a></li>
+        </ul>
+        <h3 class="mt-4">Setup</h3>
+        <ul>
+          <li>Setting the wifi card to monitor mode: Find the card name with "ifconfig" (e.g. wlan0 or wlx60e327177a6b).<br />Also, please note there are alternative methods & guides for this if necessary.<pre><code>
+sudo ifconfig wlan0 down
+sudo iwconfig wlan0 mode monitor
+sudo ifconfig wlan0 up
+          </code></pre></li>
+          <li>Some programs(hcxtools) might throw an error about conflicting network processes. You can kill them with:<pre><code>
+sudo airmon-ng check kill
+          </code></pre></li>
+        </ul>
+        <h3 class="mt-4">WEP Hacking Guides</h3>
+        <ul>
+          <li><a target="_blank" href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-cracking-wep-passwords-with-aircrack-ng-0147340/">https://null-byte.wonderhowto.com/how-to/hack-wi-fi-cracking-wep-passwords-with-aircrack-ng-0147340/</a></li>
+          <li><a target="_blank" href="https://www.aircrack-ng.org/doku.php?id=shared_key">https://www.aircrack-ng.org/doku.php?id=shared_key</a></li>
+          <li><a target="_blank" href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-hunting-down-cracking-wep-networks-0183712/">https://null-byte.wonderhowto.com/how-to/hack-wi-fi-hunting-down-cracking-wep-networks-0183712/</a></li>
+          <li><a target="_blank" href="https://www.aircrack-ng.org/doku.php?id=simple_wep_crack">https://www.aircrack-ng.org/doku.php?id=simple_wep_crack</a></li>
+          <li>You technically only need one wifi adapter for this hack, but it would take awhile to capture enough (~100,000) packets for cracking. The second wifi adpater speeds up the process.</li>
+        </ul>
+        <h3 class="mt-4">WPA2 Hacking Guides</h3>
+        <ul>
+          <li><a href="https://null-byte.wonderhowto.com/how-to/hack-wi-fi-cracking-wpa2-psk-passwords-using-aircrack-ng-0148366/" target="_blank">https://null-byte.wonderhowto.com/how-to/hack-wi-fi-cracking-wpa2-psk-passwords-using-aircrack-ng-0148366/</a></li>
+          <li>ADVICE: Start with low number of Deauth frames (1-3). Too many will permanetly disconnect some devices</li>
+          <li><a href="https://www.aircrack-ng.org/doku.php?id=cracking_wpa" target="_blank">https://www.aircrack-ng.org/doku.php?id=cracking_wpa</a></li>
+          <li>HINT: Passwords are in Rockyou DB. They are exactly 10 digits long and should take less than 10-15minutes to crack with a laptop.</li>
+          <li>You technically only need one wifi adapter for this hack, but you would have to wait for a client to make a connection to the network (e.g. when your phone autoconnects to home wifi when you come home from work). The second wifi adapter allows us to disconnect (deauth) an already connected client.</li>
+          <li>If the network has no clients, you must wait or try alternative techniques, such as PMKID or WPS. </li>
+        </ul>
+        <h3 class="mt-4">PMKID Guide</h3>
+        <ul>
+          <li><a href="https://www.bitcrack.net/the-pmkid-attack/" target="_blank">https://www.bitcrack.net/the-pmkid-attack/</a></li>
+        </ul>
+        <h3 class="mt-4">WPS Guides</h3>
+        <ul>
+          <li>You can find wifi networks with WPS enbaled using Wash (installs with Reaver) or Airodump-ng -W option.</li>
+          <li>PixieDust: <a href="https://null-byte.wonderhowto.com/how-to/hack-wifi-using-wps-pixie-dust-attack-0162671/" target="_blank">https://null-byte.wonderhowto.com/how-to/hack-wifi-using-wps-pixie-dust-attack-0162671/ </a></li>
+          <li>Personalized PIN: <a href="https://github.com/t6x/reaver-wps-fork-t6x/wiki/Introducing-a-new-way-to-crack-WPS:-Option--p-with-an-Arbitrary-String" target="_blank">https://github.com/t6x/reaver-wps-fork-t6x/wiki/Introducing-a-new-way-to-crack-WPS:-Option--p-with-an-Arbitrary-String</a></li>
+          <li>Brute Force:  <a href="https://www.kalitutorials.net/2014/04/hack-wpawpa2-wps-reaver-kali-linux.html" target="_blank">https://www.kalitutorials.net/2014/04/hack-wpawpa2-wps-reaver-kali-linux.html</a></li>
+          <li>ADVICE: Try brute force last! Most current routers will timeout/lockout after 3 failed attempts!!</li>
+          <li>HINT: Any brute force will take less than 10 minutes.</li>
+        </ul>
+        <h3 class="mt-4">Netgear Routers with default ESSID (e.g. NETGEAR85)</h3>
+        <ul>
+          <li><a href="https://ethaniel.me/networking/practical-wpa2-attacks-on-netgear-routers" target="_blank">https://ethaniel.me/networking/practical-wpa2-attacks-on-netgear-routers</a></li>
+          <li>HINT: Use the password list in Requirements. You must add 3 digit numbers</li>
+          <li>HINT: The password begins with a constonant and is in first half of alphabet</li>
+        </ul>
+        <h3 class="mt-4">Hidden Networks</h3>
+        <ul>
+          <li><a href="https://www.aircrack-ng.org/doku.php?id=airodump-ng#hidden_ssids_length" target="_blank">https://www.aircrack-ng.org/doku.php?id=airodump-ng#hidden_ssids_length</a></li>
+          <li><a href="http://bactracktutorial.blogspot.com/2011/12/using-mdk3-in-backtrack-4-to-crack.html" target="_blank">http://bactracktutorial.blogspot.com/2011/12/using-mdk3-in-backtrack-4-to-crack.html</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>

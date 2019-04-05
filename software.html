@@ -31,7 +31,7 @@
         <a href="foxes.html" class="list-group-item list-group-item-action bg-light">Fox Information</a>
         <a href="reqs.html" class="list-group-item list-group-item-action bg-light">Requirements</a>
         <a href="rules.html" class="list-group-item list-group-item-action bg-light">Rules</a>
-        <a href="software.html" class="list-group-item list-group-item-action bg-light">Software Tools</a>
+        <a href="software.html" class="list-group-item list-group-item-action bg-light list-active">Software Tools</a>
         <a href="howto.html" class="list-group-item list-group-item-action bg-light">How-Tos</a>
         <a href="basics.html" class="list-group-item list-group-item-action bg-light">Basics</a>
         <a href="wild.html" class="list-group-item list-group-item-action bg-light">In The Wild</a>
@@ -59,9 +59,22 @@
       </nav>
 
       <div class="container-fluid">
-        <h1 class="mt-4">Welcome Attendees!</h1>
-        <p>You will find a ton of information here for the WiFi Fox & Hound event.  This challenge was designed for both beginners and seasoned professionals - we encourage all to participate! If you have never participated in or heard of a WiFi Fox & Hound event before the basic gist of it is that we hid access points (APs) across the conference for attendees to find. Once you find an AP, you must figure out how to get into said access point. Score points once you figure out the password!</p>
-        <p>Use the sidebar to get more details about the contest, including how-to guides, recommended tools and further explanations.</p>
+        <h1 class="mt-4">Software Tools</h1>
+        <ul>
+          <li>Aircrack-ng (monitoring, AP/client recon, WEP & WPA2 hacking).  Install from repositories (sudo apt-get install aircrack-ng).</li>
+          <li>Reaver (WPS/PixieDust) compile from source <a href="https://github.com/t6x/reaver-wps-fork-t6x" target="_blank">https://github.com/t6x/reaver-wps-fork-t6x</a></li>
+          <li>Mdk3 (brute force hidden networks, stress test Wifi network) repository "sudo apt-get install mdk3"</li>
+          <li>Hcxdumptool/hcxpcaptool (capturing PMKID info) compile:<br/> <a href="https://github.com/ZerBea/hcxdumptool" target="_blank">https://github.com/ZerBea/hcxdumptool</a><br /> <a href="https://github.com/ZerBea/hcxtools" target="_blank">https://github.com/ZerBea/hcxtools</a></li>
+          <li>Hashcat (cracking variety of password hashes, specifically PKMID) Download newest binary here: <a href="https://hashcat.net/files/hashcat-5.1.0.7z" target="_blank">https://hashcat.net/files/hashcat-5.1.0.7z</a></li>
+        </ul>
+        <h1 class="mt-4">Alternative Tools</h1>
+        <ul>
+          <li>Cowpatty (WPA2 password cracking, rainbow table generation)</li>
+          <li>Pyrit (GPU, multi-core password cracker & rainbow table generator)</li>
+          <li>Bully (WPS, PixieDust)</li>
+          <li>Airgeddon (Finding insecure networks)</li>
+          <li>Kismet (IDS, AP/Client recon, hidden network detection)</li>
+        </ul>
       </div>
     </div>
     <!-- /#page-content-wrapper -->
