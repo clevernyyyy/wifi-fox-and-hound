@@ -1,0 +1,183 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+  REQUIREMENTS
+1. Linux, such USB bootable Linux. The flavor (kali, puppy, ubuntu) doesn't matter
+since you should be installing the newest versions of software from repositories & source code
+https://docs.kali.org/downloading/kali-linux-live-usb-install
+https://mashtips.com/best-portable-linux-distro/
+
+2. External Wifi adpater capable of monitor mode & replay attacks 
+A table/area will be available for players to check-out wifi adapters provided by volunteers
+Inexpensive Panda adapter https://www.amazon.com/dp/B00JDVRCI0/ref=cm_sw_r_tw_dp_U_x_LL6ACb3VFZAV5
+http://hackersgrid.com/2018/06/top-kali-wifi-adapters.html
+
+3. Dope Scope (suggested) https://warcollar.com/products/dopescope.html
+   10 are available for check-out
+
+4. Rockyou wordlist & Netgear adjective+noun password list
+https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+https://github.com/soxrok2212/PSKracker/blob/master/dicts/netgear/netgear.txt
+
+
+--------------------------------------------------------------------------------
+
+
+RULES & CODE of CONDUCT
+No cheating
+Maybe form teams, prize will be split
+For encrypted foxes, you must find& report the PSK/passphrase
+For the open network foxes, you must connect to the network & it
+should automatically (you may have to open your web browser & try accessing any
+website) Captive Portal you to a page with the secret key. 
+??Once you have a key, submit it to your webpage "account" OR write it down & submit it to the table??
+
+--------------------------------------------------------------------------------
+
+FOXES INFO
+There are 17 foxes in total. Some of the fox networks are hidden. 
+9 of the foxes are secured with encryption and must be cracked.
+The 9 encrypted foxes are susceptible to WEP, WPA2, or WPS exploits. 
+An additional 8 foxes are open network, but running on ESP8266-01 hidden throughout
+the hotel. These chips have weak signals; Dope Scopes will help. 
+
+
+--------------------------------------------------------------------------------
+
+SOFTWARE TOOLS
+Aircrack-ng (monitoring, AP/client recon, WEP & WPA2 hacking)  Install from repositories (sudo apt-get install aircrack-ng)
+Reaver (WPS/PixieDust) compile from source https://github.com/t6x/reaver-wps-fork-t6x
+Mdk3 (brute force hidden networks, stress test Wifi network) repository "sudo apt-get install mdk3"
+Hcxdumptool/hcxpcaptool (capturing PMKID info) compile https://github.com/ZerBea/hcxdumptool https://github.com/ZerBea/hcxtools
+Hashcat (cracking variety of password hashes, specifically PKMID) Download newest binary https://hashcat.net/files/hashcat-5.1.0.7z
+
+Alternative tools
+Cowpatty (WPA2 password cracking, rainbow table generation) 
+Pyrit (GPU, multi-core password cracker & rainbow table generator)
+Bully (WPS, PixieDust)
+Airgeddon (Finding insecure networks)
+Kismet (IDS, AP/Client recon, hidden network detection)
+
+
+--------------------------------------------------------------------------------
+
+
+HOW-TO GUIDES, SUGGESTED METHODS
+
+BASIC TERMINOLOGY
+https://techtalk.gfi.com/wi-fi-glossary-71-terms-you-need-to-know/
+https://www.datapro.net/techinfo/wifi_term.html
+
+SETUP
+Setting the wifi card to monitor mode: Find the card name with "ifconfig" (e.g. wlan0 or wlx60e327177a6b)
+"sudo ifconfig wlan0 down"
+"sudo iwconfig wlan0 mode monitor"
+"sudo ifconfig wlan0 up"
+There are alternative methods & guides for this
+
+Some programs(hcxtools) might throw an error about conflicting network processes. You can kill them with:
+"sudo airmon-ng check kill"
+
+
+WEP hacking guides
+https://null-byte.wonderhowto.com/how-to/hack-wi-fi-cracking-wep-passwords-with-aircrack-ng-0147340/
+https://www.aircrack-ng.org/doku.php?id=shared_key
+https://null-byte.wonderhowto.com/how-to/hack-wi-fi-hunting-down-cracking-wep-networks-0183712/
+https://www.aircrack-ng.org/doku.php?id=simple_wep_crack
+*You technically only need one wifi adapter for this hack, but it would take awhile to capture
+  enough (~100,000) packets for cracking. The second wifi adpater speeds up the process
+
+WPA2 hacking guides
+https://null-byte.wonderhowto.com/how-to/hack-wi-fi-cracking-wpa2-psk-passwords-using-aircrack-ng-0148366/
+ADVICE: Start with low number of Deauth frames (1-3). Too many will permanetly disconnect some devices
+https://www.aircrack-ng.org/doku.php?id=cracking_wpa
+HINT: Passwords are in Rockyou DB. They are exactly 10 digits long and should take less than 10-15minutes to crack with a laptop
+*You technically only need one wifi adapter for this hack, but you would have to wait for a client
+  to make a connection to the network (e.g. when your phone autoconnects to home wifi when you come home from work)
+  The second wifi adapter allows us to disconnect (deauth) an already connected client. 
+  If the network has no clients, you must wait or try alternative techniques, such as PMKID or WPS. 
+ 
+PMKID Guide
+https://www.bitcrack.net/the-pmkid-attack/
+
+WPS Guides
+You can find wifi networks with WPS enbaled using Wash (installs with Reaver) or Airodump-ng -W option
+PixieDust https://null-byte.wonderhowto.com/how-to/hack-wifi-using-wps-pixie-dust-attack-0162671/ 
+Personalized PIN https://github.com/t6x/reaver-wps-fork-t6x/wiki/Introducing-a-new-way-to-crack-WPS:-Option--p-with-an-Arbitrary-String
+Brute Force https://www.kalitutorials.net/2014/04/hack-wpawpa2-wps-reaver-kali-linux.html
+ADVICE: Try brute force last! Most current routers will timeout/lockout after 3 failed attempts!!
+HINT: Any brute force will take less than 10 minutes
+
+Netgear Routers with default ESSID (e.g. NETGEAR85)
+https://ethaniel.me/networking/practical-wpa2-attacks-on-netgear-routers
+HINT: Use the password list in Requirements. You must add 3 digit numbers
+HINT: The password begins with a constonant and is in first half of alphabet
+
+Hidden Networks
+https://www.aircrack-ng.org/doku.php?id=airodump-ng#hidden_ssids_length
+http://bactracktutorial.blogspot.com/2011/12/using-mdk3-in-backtrack-4-to-crack.html
+
+
+--------------------------------------------------------------------------------
+
+
+BASIC EXPLANATION OF HACKS
+BASIC TERMINOLOGY
+Taken from https://techtalk.gfi.com/wi-fi-glossary-71-terms-you-need-to-know/
+https://www.datapro.net/techinfo/wifi_term.html
+
+WEP - If you capture enough packets(IV initialization vectors), about 100000, from
+      the network, you can crack the password with statistical methods. You can also
+      add packet injection (ARP packets) to capture the 100,000 IV packets faster
+      1 weblink
+WPA2 - When a client (cell phone, laptop, roku) auto connects to a known WPA2 network,
+       the password hash is exchanged during 4 way handshake. If you can capture 
+       the handshake/hash, you can crack it offline against a wordfile. Instead of
+       waiting around for a client to connect, you can disconnect an already 
+       connected client with a DEAUTH packet, and the client will automatically
+       reconnect with a fresh handshake. Some chipsets reveal their PSK without
+       clients connected (PMKID attack)
+       2 weblinks
+WPS - 8 digit PIN, used as an alternative to the passphrase. It can be brute forced,
+      or certain chipsets & firmwares have exploits that reveal the PIN (PixieDust)
+      1 (2?) weblinks.
+?Rainbow Tables? - Hashed pre-shared key is a created using the ESSID as one of the inputs.
+                   If you want to create a database of wordlist that has been prehashed, you
+                   have to include the target ESSID in the hashing process. Useful for
+                   common/default ESSID names (NETGEAR, XyTel, etc)
+
+
+--------------------------------------------------------------------------------
+
+HELP & FAQ
+Online chat contact info (Discord? Slack?)
+
+Q: The hack isn't working
+A: The fox might be acting up and needs a reboot from the staff. 
+
+
+--------------------------------------------------------------------------------
+
+
+FOX HUNTING IN THE WILD
+ - Wigle Mapper to find vulnerable access points within the city. Search by MAC address for vulnerable chipsets (e.g. Pixie Dust)
+    https://wigle.net/
+ - RouterSploit. Most routers run embedded Linux. Get CLI & root access
+    https://github.com/threat9/routersploit
+ - Search the Exploit Databases for more exploits
+    https://www.exploit-db.com/exploits/33520
+    https://www.exploit-db.com/exploits/41205
+ - Most routers have their firmware publicily available online. Extract & examine with BinWalk and modify with Firmware Mod Kit
+    https://github.com/ReFirmLabs/binwalk
+    https://github.com/rampageX/firmware-mod-kit/wiki
+
+
+
+
+</body>
+
+</html>
